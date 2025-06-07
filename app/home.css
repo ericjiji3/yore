@@ -1,0 +1,45 @@
+.home-container{
+    width: 100vw;
+    height: 100dvh;
+    background: url('/images/home-bg.jpg');
+    background-size: cover;
+    background-position: bottom center;
+    position: relative;
+}
+.home-container .icons-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    position: absolute;
+    bottom: 15dvh;
+    width: calc(100% - 50px);
+    padding: 0 25px;
+}
+.home-container .icon-container{
+    /* position: absolute; */
+    width: 12%;
+}
+.home-container .icon-container img{
+    width: 100%;
+    height: auto;
+}
+/* .home-container .shopping-container{
+    bottom: 20dvh;
+    left: 5vw;
+}
+.home-container .blog-container{
+    bottom: 5dvh;
+    left: 25vw;
+}
+.home-container .video-container{
+    bottom: 10dvh;
+    left: 45vw;
+}
+.home-container .light-container{
+    bottom: 17dvh;
+    left: 60vw;
+}
+.home-container .mail-container{
+    bottom: 10dvh;
+    right: 5vw;
+} */
