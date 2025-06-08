@@ -1,9 +1,63 @@
 .blogs-container{
-    position: absolute;
-    top: 0;
+    position: fixed;
+    bottom: 0dvh;
     left: 0;
     width: 100vw;
     height: 100dvh;
     z-index: 1;
     overflow-y: auto;
+    display: none;
+}
+.blogs-container.show{
+    display: block;
+}
+.blogs-container .blogs-list{
+    width: 50%;
+    margin: 50px auto;
+}
+.blogs-container .exit-icon{
+    width: 150px!important;
+    height: auto;
+    transform: rotate(-5deg);
+    position: fixed;
+    top: 25px;
+    left: 25px;
+}
+.blogs-container .blogs-list .blog-item{
+    margin: 50px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0px;
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    background-image: url('@/public/images/paper.jpg');
+    background-size: cover;
+    
+}
+.blogs-container .blogs-list .blog-item:first-child{
+    margin: 0px 0 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0px;
+    text-decoration: none;
+    color: black;
+    padding: 15px;
+}
+
+
+.blogs-container .blogs-list .blog-item h2, p{
+    display: block;
+    width: 100%;
+}
+.blogs-container .blogs-list .blog-item h2{
+    margin: 0;
+}
+.blogs-container .blogs-list .blog-item p{
+    margin: 5px 0 10px;
+}
+.blogs-container .blogs-list .blog-item:hover h2,.blog-item:hover p{
+    text-decoration: underline;
 }

@@ -23,6 +23,25 @@
     width: 100%;
     height: auto;
 }
+.home-container .icon-container.light-container{
+    position: relative;
+}
+.home-container .icon-container .light{
+    position: absolute;
+
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #fff;
+}
+.home-container .icon-container .light.light-1{
+    top: 30px;
+    left: 12.5px;
+}
+.home-container .icon-container .light.light-2{
+    top: 30px;
+    right: 10px;
+}
 /* .home-container .shopping-container{
     bottom: 20dvh;
     left: 5vw;
