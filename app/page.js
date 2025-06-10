@@ -3,10 +3,11 @@ import Image from "next/image";
 import ShoppingIcon from '@/public/images/shopping-icon.png';
 import BlogIcon from '@/public/images/blog-icon.png';
 import MailIcon from '@/public/images/mail-icon.png';
-import LightIcon from '@/public/images/light-icon.png';
+import LightIcon from '@/public/images/light-icon-off.png';
 import VideoIcon from '@/public/images/video-icon.png';
 import styles from './home.css';
 import client from "./utils/contentful";
+import Contact from "./components/Contact";
 
 export default async function Home() {
   const blogs = await client.getEntries({ content_type: 'blogPost' });
@@ -28,11 +29,9 @@ export default async function Home() {
           <div className="light light-1"></div>
           <div className="light light-2"></div>
         </div>  
-        <div className="mail-container icon-container">
-          <Image src={MailIcon} alt="mail-icon" width={400}/>
-        </div>
+        <Contact />
       </div>
-     
+
       
 
     </div>

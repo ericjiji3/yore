@@ -1,7 +1,7 @@
 .home-container{
     width: 100vw;
     height: 100dvh;
-    background: url('/images/home-bg.jpg');
+    background: url('/images/home-bg2.png');
     background-size: cover;
     background-position: bottom center;
     position: relative;
@@ -11,7 +11,7 @@
     justify-content: space-between;
     align-items: baseline;
     position: absolute;
-    bottom: 15dvh;
+    bottom: 7dvh;
     width: calc(100% - 50px);
     padding: 0 25px;
 }
@@ -35,12 +35,12 @@
     background-color: #fff;
 }
 .home-container .icon-container .light.light-1{
-    top: 30px;
-    left: 12.5px;
+    top: 55px;
+    left: 62px;
 }
 .home-container .icon-container .light.light-2{
-    top: 30px;
-    right: 10px;
+    top: 55px;
+    right: 57px;
 }
 /* .home-container .shopping-container{
     bottom: 20dvh;
