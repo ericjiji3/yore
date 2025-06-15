@@ -1,8 +1,18 @@
 .mail-container .contact-form{
+    position: fixed;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    z-index: 1000;
     display: none;
+    user-select: none;
+    font-family: 'Public Sans'!important;
+    font-weight: 600!important;
 }
 .mail-container .contact-form.active{
-    display: block;
+    display: flex;
+    flex-direction: column;
     aspect-ratio: 16/9;
     width: 750px;
     height: auto;
@@ -11,23 +21,45 @@
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #EDEDED;
-    border-radius: 5px;
-
+    border-radius: 20px;
 }
 .mail-container .contact-form .top-bar{
-    display: flex;
-    width: 100%;
-    height: 25px;
     background: linear-gradient(#CBCBCB, #A8A8A8);
+    padding: 5px 10px;
     border-radius: 5px 5px 0 0;
+    display: flex;
+    gap: 5px;
+   
+}
+
+.mail-container .contact-form .top-bar:active {
+
+}
+.mail-container .contact-form .top-bar .circle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15px;
+    height: 15px;
 }
 .mail-container .contact-form .form-container {
     background-color: #E9E9E9;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0 0 5px 5px;
+}
+.mail-container .contact-form .form-container form{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    font-size: 14px!important;
 }
 .mail-container .contact-form .form-container .icon-links{
     display: flex;
     gap: 10px;
     margin: 10px;
+    font-size: 12px!important;
 }
 .mail-container .contact-form .form-container .contact-icon-container{
     display: flex;
@@ -62,23 +94,77 @@
     display: block;
     margin: 5px 0 0 0;
 }
-.mail-container .contact-form .form-container form{
-    margin: 0 10px;
-
+.mail-container .contact-form .form-container form .input-container{
+    padding: 0 10px;
+    border-bottom: 2px solid #DADADA;
 }
 .mail-container .contact-form .form-container form .input-group{
     width: 100%;
     display: flex;
     gap: 5px;
     margin: 10px 0;
-    border-bottom: 2px solid #DADADA;
+    /* border-bottom: 2px solid #DADADA; */
+    justify-content: end;
 }
 .mail-container .contact-form .form-container form .input-group:first-child{
     margin: 0px 0 10px 0;
 }
-.mail-container .contact-form .form-container form .input-group:last-child{
-    border-bottom: 2px solid #DADADA;
+.mail-container .contact-form .form-container form .input-group.last{
+
 }
 .mail-container .contact-form .form-container form .input-group input{
+    width: 650px;
+    font-family: 'Public Sans'!important;
+    font-size: 14px!important;
+}
+
+.mail-container .contact-form .form-container form .input-group:has(textarea){
+    flex-grow: 1;
+}
+.mail-container .contact-form .form-container form .input-group textarea{
+    width: calc(100% - 20px);
+    height: 100%;
+    margin: auto;
+    font-family: 'Public Sans'!important;
+    font-size: 14px!important;
+}
+.mail-container .contact-form .form-container form .bottom-bar{
+    margin: 5px 10px;
+    border-radius: 0 0 20px 20px;
+}
+.mail-container .contact-form .form-container form button{
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font-family: 'Public Sans'!important;
+    font-size: 14px!important;
+    font-weight: 600!important;
+	cursor: pointer;
+	outline: inherit;
+    width: fit-content;
+    border: 1px solid #1D3CAA; 
+    border-radius: 20px;
+    /* border-image: linear-gradient(to bottom, #1D3CAA, #758AD5) 1;  */
+    background: linear-gradient(#0075FE, #74EBFF);
+    padding: 3px 25px;
+    margin: 0 auto;
+    position: relative;
+}
+.mail-container .contact-form .form-container form button:hover{
+    cursor: url('/cursor-icon.png'), auto;
+}
+.mail-container .contact-form .form-container form button::after{
+    content: '';
+    background: linear-gradient(#ffffffd6, #ffffff00);
+    border-radius: 20px 20px 0 0;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 10px;
+}
+.mail-container .contact-form .form-container form .bottom-bar button img{
+    width: 85px;
+    height: auto;
 }

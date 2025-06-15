@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import IntroWrapper from './components/IntroWrapper';
+import CursorLight from './components/CursorLight';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,7 +22,11 @@ export default function RootLayout({ children }) {
   
   return (
     <html lang="en">
+      <head>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap"/>
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <CursorLight />
         <IntroWrapper />
         {children}
       </body>

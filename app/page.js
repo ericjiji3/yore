@@ -1,6 +1,7 @@
 import Blogs from "./components/Blogs";
 import Image from "next/image";
 import ShoppingIcon from '@/public/images/shopping-icon.png';
+import LightPole from "./components/LightPole";
 import BlogIcon from '@/public/images/blog-icon.png';
 import MailIcon from '@/public/images/mail-icon.png';
 import LightIcon from '@/public/images/light-icon-off.png';
@@ -23,12 +24,7 @@ export default async function Home() {
           <Image src={VideoIcon} alt="video-icon" width={300} />
         </div>
        <Blogs blogs={blogs.items} />
-    
-        <div className="light-container icon-container">
-          <Image src={LightIcon} alt="mail-icon" width={250}/>
-          <div className="light light-1"></div>
-          <div className="light light-2"></div>
-        </div>  
+        <LightPole />
         <Contact />
       </div>
 
