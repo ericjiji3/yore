@@ -3,11 +3,11 @@ import "./Blogs.css";
 import Image from "next/image";
 import BlogIcon from '@/public/images/blog-icon.png';
 import ExitIcon from '@/public/images/exit-sign.png';
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 
-export default function Blogs({blogs}) {
+function BlogsContent({blogs}) {
     const [showBlogs, setShowBlogs] = useState(false);
     const searchParams = useSearchParams();
     const router = useRouter();
@@ -46,6 +46,14 @@ export default function Blogs({blogs}) {
                     ))}
                 </div>
             </div>
-      </div>
+        </div>
     )
+}
+
+export default function Blogs(props) {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <BlogsContent {...props} />
+        </Suspense>
+    );
 }
