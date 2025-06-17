@@ -24,7 +24,6 @@
     width: calc(100vw - 500px);
     height: 100%;
     margin: 0 auto;
-
 }
 .article-container .article-title{
     margin: 0;
@@ -35,4 +34,16 @@
 .article-container img{
     width: 100%;
     height: auto;
+}
+
+@media(max-width: 1024px){
+    .article-container{
+        width: calc(100vw - 150px);
+    }
+    .blog-page-container{
+        padding: 150px 0 50px;
+    }
+    .blog-page-container .exit-container .exit-icon{
+        width: 100px!important;
+    }
 }

@@ -61,3 +61,17 @@
 .blogs-container .blogs-list .blog-item:hover h2,.blog-item:hover p{
     text-decoration: underline;
 }
+@media(max-width: 1024px){
+    .blogs-container .exit-icon{
+        width: 100px!important;
+    }
+}
+@media(max-width: 768px){
+    .blogs-container .exit-icon{
+        width: 100px!important;
+    }
+    .blogs-container .blogs-list{
+        width: 60%;
+        margin: 150px auto 50px;
+    }
+}

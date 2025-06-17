@@ -14,6 +14,12 @@ import SendButton from '@/public/images/send-button.png';
 export default function Contact() {
     const [showContact, setShowContact] = useState(false);
     const [position, setPosition] = useState({ x: 0, y: 0 });
+    const [initial, setInitial] = useState({
+        position: 'fixed',
+        left: `50%`,
+        top: `${position.y}px`
+      
+    });
     const [isDragging, setIsDragging] = useState(false);
     const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
     const formRef = useRef(null);
@@ -21,27 +27,48 @@ export default function Contact() {
     const centerForm = () => {
         if (formRef.current) {
             const formRect = formRef.current.getBoundingClientRect();
-            const centerX = Math.max(0, (window.innerWidth - formRect.width) / 2);
-            const centerY = Math.max(0, (window.innerHeight - formRect.height) / 2);
-            setPosition({ x: centerX, y: centerY });
+            console.log(formRect.width);
+            if(window.innerWidth < 768){
+                const centerX = ((window.innerWidth - (formRect.width ))/2);
+                const centerY = ((window.innerHeight - formRect.height) / 2);
+                setPosition({ x: centerX, y: centerY });
+            }else{
+                const centerX = ((window.innerWidth - (formRect.width ))/2);
+                const centerY = ((window.innerHeight - formRect.height) / 2);
+                setPosition({ x: centerX, y: centerY });
+            }
+           
         }
     };
 
     // Initial centering
+    // useEffect(() => {
+    //     const initialCenter = () => {
+    //         // Wait for the form to be rendered
+    //         setTimeout(() => {
+    //             if (formRef.current) {
+    //                 const formRect = formRef.current.getBoundingClientRect();
+    //                 const centerX = Math.max(0, (window.innerWidth - formRect.width) / 2);
+    //                 const centerY = Math.max(0, (window.innerHeight - formRect.height) / 2);
+    //                 setPosition({ x: centerX, y: centerY });
+    //             }
+    //         }, 0);
+    //     };
+    //     initialCenter();
+    // }, []);
+
     useEffect(() => {
-        const initialCenter = () => {
-            // Wait for the form to be rendered
-            setTimeout(() => {
-                if (formRef.current) {
-                    const formRect = formRef.current.getBoundingClientRect();
-                    const centerX = Math.max(0, (window.innerWidth - formRect.width) / 2);
-                    const centerY = Math.max(0, (window.innerHeight - formRect.height) / 2);
-                    setPosition({ x: centerX, y: centerY });
-                }
-            }, 0);
+        const handleResize = () => {
+            if (showContact) {
+                centerForm();
+            }
         };
-        initialCenter();
-    }, []);
+
+        window.addEventListener('resize', centerForm);
+        return () => {
+            window.removeEventListener('resize', centerForm);
+        };
+    }, [showContact]);
 
     // Resize handling
     useEffect(() => {
@@ -60,7 +87,7 @@ export default function Contact() {
     // Center form when it becomes visible
     useEffect(() => {
         if (showContact) {
-            setTimeout(centerForm, 0);
+            centerForm();
         }
     }, [showContact]);
 
