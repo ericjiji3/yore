@@ -9,11 +9,14 @@
     padding: 50px 0;
 }
 .blog-page-container .exit-container{
-    
+    text-decoration: none;
     transform: rotate(-5deg);
     position: fixed;
     top: 25px;
     left: 25px;
+}
+.blog-page-container .exit-container:hover{
+    cursor: url('../../../public/cursor-icon.png'), auto;
 }
 .blog-page-container .exit-container .exit-icon{
     width: 150px!important;

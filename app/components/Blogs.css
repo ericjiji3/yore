@@ -58,6 +58,9 @@
 .blogs-container .blogs-list .blog-item p{
     margin: 5px 0 10px;
 }
+.blogs-container .blogs-list .blog-item:hover{
+    cursor: url('../../public/cursor-icon.png'), auto;
+}
 .blogs-container .blogs-list .blog-item:hover h2,.blog-item:hover p{
     text-decoration: underline;
 }

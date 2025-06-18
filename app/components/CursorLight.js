@@ -8,19 +8,35 @@ export default function CursorLight() {
 
   useEffect(() => {
     const handleMouseMove = (e) => {
-      setPosition({ x: e.clientX, y: e.clientY });
+      if (window.innerWidth > 768) {
+        setPosition({ x: e.clientX, y: e.clientY });
+      }
     };
 
     const handleClick = () => {
-      setIsActive(prev => !prev);
+      if (window.innerWidth > 768) {
+        setIsActive(prev => !prev);
+      }
+    };
+
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        setPosition({ x: 0, y: 0 });
+        setIsActive(false);
+      }
     };
 
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('click', handleClick);
+    window.addEventListener('resize', handleResize);
+
+    // Initial check
+    handleResize();
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('click', handleClick);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 

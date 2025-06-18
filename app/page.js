@@ -9,6 +9,7 @@ import VideoIcon from '@/public/images/video-icon.png';
 import styles from './home.css';
 import client from "./utils/contentful";
 import Contact from "./components/Contact";
+import Video from "./components/Video";
 
 export default async function Home() {
   const blogs = await client.getEntries({ content_type: 'blogPost' });
@@ -20,9 +21,7 @@ export default async function Home() {
         <div className="shopping-container icon-container">
           <Image src={ShoppingIcon} alt="shopping-icon" width={300} />
         </div>
-        <div className="video-container icon-container">
-          <Image src={VideoIcon} alt="video-icon" width={300} />
-        </div>
+        <Video />
        <Blogs blogs={blogs.items} />
         <LightPole />
         <Contact />
