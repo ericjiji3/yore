@@ -35,6 +35,14 @@
     border-radius: 50%;
     background: radial-gradient(circle, rgba(255, 255, 187, 0.683) 0%, rgba(255, 255, 187, 0) 70%);
 }
+.home-container .icon-container .light{
+    position: absolute;
+    display: none;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 187, 0.683) 0%, rgba(255, 255, 187, 0) 70%);
+}
 .home-container .icon-container .light.active{
     display: block;
 }
@@ -72,6 +80,18 @@ transform: translate(-50%, -50%);
         position: relative;
         bottom: 6dvh;
         width: 20%;
+    }
+    .home-container .icon-container .light.light-1{
+        top: calc(50% - 200px);
+        left: calc(50% + 50px);
+    
+    transform: translate(-50%, -50%);
+    }
+    .home-container .icon-container .light.light-2{
+        top: calc(50% - 200px);
+        left: calc(50% - 50px);
+        transform: translate(-50%, -50%);
+    
     }
     .home-container .icon-container.shopping-container{
         position: relative;
