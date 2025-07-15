@@ -22,7 +22,7 @@ export default async function Home() {
           <Image src={ShoppingIcon} alt="shopping-icon" width={300} />
         </div>
         <Video />
-       <Blogs blogs={blogs.items} />
+        < Blogs blogs={blogs.items} />
         <LightPole />
         <Contact />
       </div>

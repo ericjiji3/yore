@@ -54,9 +54,11 @@
 }
 .blogs-container .blogs-list .blog-item h2{
     margin: 0;
+    font-family: 'Rotunda';
 }
 .blogs-container .blogs-list .blog-item p{
     margin: 5px 0 10px;
+    font-family: 'Requiem';
 }
 .blogs-container .blogs-list .blog-item:hover{
     cursor: url('../../public/cursor-icon.png'), auto;

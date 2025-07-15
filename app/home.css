@@ -25,7 +25,7 @@
 }
 .home-container .icon-container.light-container{
     position: relative;
-    width: 9%;
+    width: 90px;
 }
 .home-container .icon-container .light{
     position: absolute;
@@ -47,13 +47,13 @@
     display: block;
 }
 .home-container .icon-container .light.light-1{
-    top: calc(50% - 275px);
+    top: calc(50% - 200px);
     left: calc(50% + 50px);
 
 transform: translate(-50%, -50%);
 }
 .home-container .icon-container .light.light-2{
-    top: calc(50% - 275px);
+    top: calc(50% - 200px);
     left: calc(50% - 50px);
     transform: translate(-50%, -50%);
 
@@ -80,6 +80,7 @@ transform: translate(-50%, -50%);
         position: relative;
         bottom: 6dvh;
         width: 20%;
+        order: 3;
     }
     .home-container .icon-container .light.light-1{
         top: calc(50% - 200px);
@@ -98,23 +99,27 @@ transform: translate(-50%, -50%);
         bottom: 1dvh;
         width: 20%;
         /* left: 5vw; */
+        order: 1;
     }
     .home-container .icon-container.blog-comp{
         position: relative;
         bottom: -2dvh;
         left: 5vw;
         width: 22.5%;
+        order: 2;
     }
     .home-container .icon-container.video-container{
         position: relative;
-        bottom: 5dvh;
-        left: 4dvw;
+        bottom: -3dvh;
+        left: -2dvw;
         width: 20%;
+        order: 4;
     }
     .home-container .icon-container.mail-container{
         position: relative;
         bottom: 2dvh;
         /* right: 5vw; */
+        order: 5;
     }
 }
 /* .home-container .shopping-container{

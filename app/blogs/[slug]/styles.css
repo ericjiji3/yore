@@ -30,9 +30,17 @@
 }
 .article-container .article-title{
     margin: 0;
+    font-family: 'Rotunda';
 }
 .article-container .article-date{
     margin: 5px 0 10px;
+    font-family: 'Requiem';
+}
+.article-container h1, h2, h3, h4, h5, h6{
+    font-family: 'Rotunda';
+}
+.article-container p{
+    font-family: 'Requiem';
 }
 .article-container img{
     width: 100%;

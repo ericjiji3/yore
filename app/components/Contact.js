@@ -1,9 +1,10 @@
 'use client';
 import { useState, useRef, useEffect } from 'react';
+import emailjs from '@emailjs/browser';
 import "./Contact.css";
 import Image from "next/image";
 import MailIcon from '@/public/images/mail-icon.png';
-import ContactHome from '@/public/images/contact-home.jpg';
+import ContactHome from '@/public/images/contact-home.png';
 import ContactInstagram from '@/public/images/contact-ig.png';
 import ContactYouTube from '@/public/images/contact-youtube.png';
 import RedCircle from '@/public/images/red-circle.png';
@@ -21,8 +22,20 @@ export default function Contact() {
       
     });
     const [isDragging, setIsDragging] = useState(false);
+    const [submitted, setSubmitted] = useState(false);
     const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
     const formRef = useRef(null);
+    const buttonRef = useRef(null);
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+    });
+    const [errors, setErrors] = useState({
+        name: false,
+        email: false
+    });
 
     const centerForm = () => {
         if (formRef.current) {
@@ -40,6 +53,35 @@ export default function Contact() {
            
         }
     };
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+
+        // Update the formData state
+        setFormData((prevData) => {
+            const updatedData = { ...prevData, [name]: value };
+
+            return updatedData;
+        });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log('buitton submitted');
+        emailjs.sendForm(process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID, process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID, formRef.current, {
+            publicKey: process.env.NEXT_PUBLIC_EMAIL_PUBLIC_KEY,
+        })
+        .then(
+            (result) => {
+                console.log('SUCCESS!', result.text);
+                setSubmitted(true);
+            },
+            (error) => {
+                console.log('FAILED...', error);
+            },
+        );
+    };
+
 
     // Initial centering
     // useEffect(() => {
@@ -136,7 +178,7 @@ export default function Contact() {
         <Image src={MailIcon} alt="mail-icon" width={400} onClick={() => setShowContact(!showContact)}/>
         <div 
             className={`contact-form ${showContact ? "active" : ""}`}
-            ref={formRef}
+
             style={{
                 position: 'fixed',
                 left: `${position.x}px`,
@@ -168,35 +210,35 @@ export default function Contact() {
                         <p>YouTube</p>
                     </div>
                 </div>
-                <form>
+                <form ref={formRef} onSubmit={handleSubmit}>
                     <div className="input-container">
                     <div className="input-group">
                         <label>To</label>
-                        <input type="text" placeholder="To" />
+                        <input type="text" placeholder="To" value="yoreartisanworks@gmail.com" readOnly/>
                     </div>
                     <div className="input-group">
                         <label>Name</label>
-                        <input type="text" placeholder="Name" />
+                        <input type="text" placeholder="Name" name="name" onChange={handleInputChange} required/>
                     </div>
                     <div className="input-group">
                         <label>Email</label>
-                        <input type="email" placeholder="Email" />
+                        <input type="email" placeholder="Email" name="email" onChange={handleInputChange} required/>
                     </div>
                     
                     <div className="input-group last">
                         <label>Subject</label>
                         {/* value="yoreartisanworks@gmail.com" */}
-                        <input type="email" placeholder="Subject"/>
+                        <input type="text" placeholder="Subject" name="subject" onChange={handleInputChange} required/>
                     </div>
                     </div>
                     <div className="input-group">
-                        <textarea rows="4" cols="50" placeholder="Enter Message Here...">
+                        <textarea rows="4" cols="50" placeholder="Enter Message Here..." name="message" onChange={handleInputChange}>
                         
                         </textarea>
                     </div>
                     <div className="bottom-bar">
-                        <button type="submit">Send</button>
-                        <div className="progress-bar"></div>
+                        <button className={submitted ? "disabled" : ""} disabled={submitted} type="submit" ref={buttonRef}>Send</button>
+                        <div className={submitted ? "status-success active" : "status-success"}>Email Sent</div>
                     </div>
                     
                 </form>
