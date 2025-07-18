@@ -9,16 +9,18 @@ export default function Video() {
     const [isHovered, setIsHovered] = useState(false);
 
     return (
-        <div 
+        <a 
             className="video-container icon-container"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
+            href="https://www.youtube.com/@YOREVM" 
+            target="_blank"
         >
           <Image 
             src={isHovered ? VideoIconOn : VideoIcon} 
             alt="video-icon" 
             width={300} 
           />
-        </div>
+        </a>
     )
 }

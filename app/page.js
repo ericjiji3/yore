@@ -19,7 +19,7 @@ export default async function Home() {
     <div className="home-container">
       <div className="icons-container">
         <div className="shopping-container icon-container">
-          <Image src={ShoppingIcon} alt="shopping-icon" width={300} />
+          <a href="https://www.etsy.com/people/io1pvxv84h4u1jh3" target="_blank"><Image src={ShoppingIcon} alt="shopping-icon" width={300} /></a>
         </div>
         <Video />
         < Blogs blogs={blogs.items} />

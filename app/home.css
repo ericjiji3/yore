@@ -19,6 +19,9 @@
     /* position: absolute; */
     width: 12.5%;
 }
+.home-container .shopping-container a:hover{
+    cursor: url('/cursor-icon.png') 16 16, auto;
+}
 .home-container .icon-container img{
     width: 100%;
     height: auto;
