@@ -187,8 +187,8 @@
 }
 @media(max-width: 768px){
     .mail-container .contact-form.active{
-        aspect-ratio: 9/16;
+        aspect-ratio: unset;
         width: 90%;
-        height: auto;
+        height: 400px;
     }
 }
