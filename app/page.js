@@ -13,7 +13,7 @@ import Video from "./components/Video";
 
 export default async function Home() {
   const blogs = await client.getEntries({ content_type: 'blogPost' });
-  console.log(blogs.items);
+  
 
   return (
     <div className="home-container">
